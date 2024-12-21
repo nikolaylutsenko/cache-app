@@ -23,6 +23,7 @@
     <ProjectReference Include="..\cacheapp.client\cacheapp.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\CacheApp.Database\CacheApp.Database.csproj" />
     <ProjectReference Include="..\CacheApp.ServiceDefaults\CacheApp.ServiceDefaults.csproj" />
   </ItemGroup>
 
