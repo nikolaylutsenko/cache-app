@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Cache_App.Server.Controllers;
+namespace CacheApp.Server.Controllers;
 
 [ApiController]
 [Route("[controller]")]

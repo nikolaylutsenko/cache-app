@@ -1,5 +1,5 @@
 {
-  "name": "cache-app.client",
+  "name": "cacheapp.client",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

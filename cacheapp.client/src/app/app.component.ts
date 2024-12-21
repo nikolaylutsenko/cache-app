@@ -34,5 +34,5 @@ export class AppComponent implements OnInit {
     );
   }
 
-  title = 'cache-app.client';
+  title = 'cacheapp.client';
 }

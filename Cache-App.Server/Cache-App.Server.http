@@ -1,6 +1,0 @@
-@Cache_App.Server_HostAddress = http://localhost:5206
-
-GET {{Cache_App.Server_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

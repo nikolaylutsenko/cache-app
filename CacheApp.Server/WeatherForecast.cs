@@ -1,4 +1,4 @@
-namespace Cache_App.Server;
+namespace CacheApp.Server;
 
 public class WeatherForecast
 {
