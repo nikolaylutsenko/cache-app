@@ -1,4 +1,5 @@
 using CacheApp.Database;
+using CacheApp.Database.Enteties;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,21 @@ if (app.Environment.IsDevelopment())
     {
         var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
         context.Database.EnsureCreated();
+
+        if (!context.Tags.Any())
+        {
+            var tags = Enumerable
+                .Range(1, 1000)
+                .Select(x => new Tag
+                {
+                    Id = Guid.NewGuid(),
+                    Name = $"Tag-{Guid.NewGuid()}",
+                    Version = 1L,
+                });
+
+            context.Tags.AddRange(tags);
+            context.SaveChanges();
+        }
     }
 }
 
