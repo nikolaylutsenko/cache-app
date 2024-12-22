@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CacheApp.Database\CacheApp.Database.csproj" />
+    <ProjectReference Include="..\CacheApp.Migrations\CacheApp.Migrations.csproj" />
     <ProjectReference Include="..\CacheApp.Server\CacheApp.Server.csproj" />
   </ItemGroup>
 

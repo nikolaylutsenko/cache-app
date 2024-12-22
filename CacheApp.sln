@@ -13,6 +13,8 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "cacheapp.client", "cacheapp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheApp.Database", "CacheApp.Database\CacheApp.Database.csproj", "{6F527504-58DC-40A3-A791-465622DB71BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheApp.Migrations", "CacheApp.Migrations\CacheApp.Migrations.csproj", "{3E8176CE-77D0-45C4-8408-3E77AA6D4C67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{6F527504-58DC-40A3-A791-465622DB71BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F527504-58DC-40A3-A791-465622DB71BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F527504-58DC-40A3-A791-465622DB71BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E8176CE-77D0-45C4-8408-3E77AA6D4C67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E8176CE-77D0-45C4-8408-3E77AA6D4C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E8176CE-77D0-45C4-8408-3E77AA6D4C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E8176CE-77D0-45C4-8408-3E77AA6D4C67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
