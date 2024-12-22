@@ -10,7 +10,7 @@ var postgresdb = builder
     .WithOtlpExporter()
     .AddDatabase("cacheappdb");
 
-builder
+var migration = builder
     .AddProject<Projects.CacheApp_Migrations>("migrations")
     .WithReference(postgresdb)
     .WaitFor(postgresdb);
@@ -21,6 +21,7 @@ builder
 builder
     .AddProject<Projects.CacheApp_Server>("api")
     .WithReference(postgresdb)
-    .WaitFor(postgresdb);
+    .WaitFor(postgresdb)
+    .WaitForCompletion(migration);
 
 builder.Build().Run();
