@@ -52,10 +52,6 @@ public class Worker(
         var strategy = dbContext.Database.CreateExecutionStrategy();
         await strategy.ExecuteAsync(async () =>
         {
-            var con = dbContext.Database.GetConnectionString();
-
-            await Task.Delay(10000); // time for containers to be running
-
             if (!await dbCreator.ExistsAsync(cancellationToken))
             {
                 await dbCreator.CreateAsync(cancellationToken);
