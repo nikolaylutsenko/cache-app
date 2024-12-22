@@ -2,6 +2,8 @@ namespace CacheApp.Migrations;
 
 using System.Data;
 using System.Diagnostics;
+using CacheApp.Utils;
+using CrypticWizard.RandomWordGenerator;
 using Database;
 using Database.Enteties;
 using Microsoft.EntityFrameworkCore;
@@ -105,8 +107,10 @@ public class Worker(
         if (await dbContext.Tags.AnyAsync(cancellationToken))
             return;
 
-        var tags = Names
-            .Tags.Split(',')
+        //var wordSource = new WordSource();
+
+        var tags = WordSource
+            .Generate(addAdjective: true, amount: 1000)
             .Select(x => new Tag
             {
                 Id = Guid.NewGuid(),

@@ -4,6 +4,7 @@ var postgresPassword = builder.AddParameter("postgresql-password", "password", t
 
 var postgresdb = builder
     .AddPostgres("postgres", password: postgresPassword, port: 5432)
+    //TODO: uncomment when every model will be ready for longterm storing
     //.WithDataVolume("cachedb-pgvolume")
     //.WithLifetime(ContainerLifetime.Persistent)
     .WithPgAdmin()

@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheApp.Database", "CacheA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheApp.Migrations", "CacheApp.Migrations\CacheApp.Migrations.csproj", "{3E8176CE-77D0-45C4-8408-3E77AA6D4C67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheApp.Utils", "CacheApp.Utils\CacheApp.Utils.csproj", "{64389346-5A4C-4EF0-BD0E-074651E5D23E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{3E8176CE-77D0-45C4-8408-3E77AA6D4C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E8176CE-77D0-45C4-8408-3E77AA6D4C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E8176CE-77D0-45C4-8408-3E77AA6D4C67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64389346-5A4C-4EF0-BD0E-074651E5D23E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64389346-5A4C-4EF0-BD0E-074651E5D23E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64389346-5A4C-4EF0-BD0E-074651E5D23E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64389346-5A4C-4EF0-BD0E-074651E5D23E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
