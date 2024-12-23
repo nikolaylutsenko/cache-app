@@ -2,14 +2,13 @@ namespace CacheApp.Migrations;
 
 using System.Data;
 using System.Diagnostics;
-using CacheApp.Utils;
-using CrypticWizard.RandomWordGenerator;
 using Database;
 using Database.Enteties;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 using OpenTelemetry.Trace;
+using Utils;
 
 public class Worker(
     IServiceProvider serviceProvider,

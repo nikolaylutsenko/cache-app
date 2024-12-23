@@ -1,5 +1,5 @@
 using CacheApp.Database;
-using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,13 +17,17 @@ var app = builder.Build();
 
 app.MapDefaultEndpoints();
 
-app.UseDefaultFiles();
-app.MapStaticAssets();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+
+    app.MapScalarApiReference(o =>
+    {
+        o.Servers = []; // this workaround is a bug solving
+        o.WithTitle("CacheApp API");
+        o.WithTheme(ScalarTheme.Mars);
+    });
 }
 
 app.UseHttpsRedirection();
@@ -31,7 +35,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.MapFallbackToFile("/index.html");
 
 app.Run();

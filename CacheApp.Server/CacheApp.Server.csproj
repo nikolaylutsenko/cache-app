@@ -13,16 +13,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
-      <Version>9.*-*</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    <PackageReference Include="Scalar.AspNetCore" Version="1.2.70" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\cacheapp.client\cacheapp.client.esproj">
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
     <ProjectReference Include="..\CacheApp.Database\CacheApp.Database.csproj" />
     <ProjectReference Include="..\CacheApp.ServiceDefaults\CacheApp.ServiceDefaults.csproj" />
   </ItemGroup>

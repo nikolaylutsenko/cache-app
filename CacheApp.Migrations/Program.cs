@@ -9,10 +9,10 @@ builder.Services.AddHostedService<Worker>();
 
 builder.Services.AddOpenTelemetry().WithTracing(t => t.AddSource(Worker.ActivitySourceName));
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(connectionString, b => b.MigrationsAssembly("CacheApp.Migrations"))
+builder.AddNpgsqlDbContext<AppDbContext>(
+    "cacheappdb",
+    configureDbContextOptions: o =>
+        o.UseNpgsql(b => b.MigrationsAssembly(typeof(Program).Assembly.FullName))
 );
 
 var host = builder.Build();
