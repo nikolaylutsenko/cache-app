@@ -14,7 +14,7 @@ public class TagConfiguration : IEntityTypeConfiguration<Tag>
 
         builder.Property(t => t.Id).IsRequired();
         builder.Property(t => t.Name).IsRequired().HasMaxLength(300);
-        builder.Property(t => t.Version).IsRequired();
+        builder.Property(t => t.Version).IsRequired().IsConcurrencyToken();
 
         builder.HasIndex(t => t.Name).IsUnique();
     }

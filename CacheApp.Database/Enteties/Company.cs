@@ -4,9 +4,9 @@ public class Company
 {
     public required Guid Id { get; set; }
     public required string Name { get; set; }
-    public required string Country { get; set; }
-    public required string Address { get; set; }
-    public required string ContactInfo { get; set; }
+    public string? Country { get; set; }
+    public string? Address { get; set; }
+    public string? ContactInfo { get; set; }
     public required long Version { get; set; }
 
     // navigation props

@@ -16,6 +16,9 @@ public class SubstanceConfiguration : IEntityTypeConfiguration<Substance>
         builder.Property(t => t.Name).HasMaxLength(300).IsRequired();
         builder.Property(t => t.Description).HasMaxLength(1000).IsRequired(false);
         builder.Property(t => t.Formula).HasMaxLength(1000).IsRequired(false);
+        builder.Property(t => t.Version).IsRequired().IsConcurrencyToken();
+
+        builder.HasIndex(t => t.Name).IsUnique();
 
         builder
             .HasOne(t => t.Manufacturer)
