@@ -4,8 +4,13 @@ using System.ComponentModel;
 
 public class MedicineSpecification
 {
+    public required Guid Id { get; set; }
     public DosageForms? Form { get; set; }
     public string? Dosage { get; set; }
+    public required Guid MedicineId { get; set; }
+
+    // navigation props
+    public required Medicine Medicine { get; set; }
 }
 
 public enum DosageForms

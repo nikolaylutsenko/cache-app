@@ -12,4 +12,5 @@ public class Substance
     // navigation props
     public Company? Manufacturer { get; set; }
     public ICollection<Medicine> Medication { get; set; } = [];
+    public ICollection<Ingridient> Ingredients { get; set; } = [];
 }
