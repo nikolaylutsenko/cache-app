@@ -16,3 +16,12 @@ public class Medicine
     public Company? Manufacturer { get; set; }
     public ICollection<Tag>? Tags { get; set; }
 }
+
+public class Ingridient
+{
+    public required Guid Id { get; set; }
+    public required Guid MedicineId { get; set; }
+    public required Guid SubstanceId { get; set; }
+    public required decimal Quantity { get; set; }
+    public required bool IsActive { get; set; }
+}
