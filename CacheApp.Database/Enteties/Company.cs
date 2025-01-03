@@ -10,5 +10,5 @@ public class Company
     public required long Version { get; set; }
 
     // navigation props
-    public ICollection<Substance> Substances { get; set; } = new List<Substance>();
+    public ICollection<Substance> Substances { get; set; } = [];
 }

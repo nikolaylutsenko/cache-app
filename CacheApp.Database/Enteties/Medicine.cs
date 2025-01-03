@@ -12,7 +12,7 @@ public class Medicine
     public required long Version { get; set; }
 
     // navigation props
-    public ICollection<Substance> Ingredients { get; set; } = new List<Substance>();
+    public ICollection<Substance> Ingredients { get; set; } = [];
     public Company? Manufacturer { get; set; }
     public ICollection<Tag>? Tags { get; set; }
 }
