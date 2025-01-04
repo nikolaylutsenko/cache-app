@@ -113,7 +113,7 @@ public class Worker(
             .Select(x => new Tag
             {
                 Id = Guid.NewGuid(),
-                Name = x,
+                Name = $"{x}-{Guid.NewGuid():N}",
                 Version = 1L,
             });
 

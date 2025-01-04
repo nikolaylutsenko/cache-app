@@ -22,13 +22,25 @@ public class MedicineConfiguration : IEntityTypeConfiguration<Medicine>
             .WithMany(t => t.Medication)
             .UsingEntity(
                 "Medication_Tags",
+                l => l.HasOne(typeof(Tag)).WithMany().HasForeignKey("TagId"),
                 r => r.HasOne(typeof(Medicine)).WithMany().HasForeignKey("MedicineId"),
-                l => l.HasOne(typeof(Tag)).WithMany().HasForeignKey("TagId")
+                j => j.HasKey("TagId", "MedicineId")
             );
         builder
             .HasMany(t => t.Substances)
             .WithMany(t => t.Medication)
-            .UsingEntity<Ingridient>("Ingridients");
+            .UsingEntity<Ingredient>(
+                "Ingredients",
+                l =>
+                    l.HasOne(t => t.Substance)
+                        .WithMany(t => t.Ingredients)
+                        .HasForeignKey(t => t.SubstanceId),
+                r =>
+                    r.HasOne(t => t.Medicine)
+                        .WithMany(t => t.Ingredients)
+                        .HasForeignKey(t => t.MedicineId),
+                j => j.HasKey(t => t.Id)
+            );
         builder
             .HasOne(t => t.Specification)
             .WithOne(t => t.Medicine)
