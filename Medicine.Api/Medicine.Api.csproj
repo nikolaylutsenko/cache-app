@@ -18,7 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CacheApp.Database\CacheApp.Database.csproj" />
     <ProjectReference Include="..\CacheApp.ServiceDefaults\CacheApp.ServiceDefaults.csproj" />
     <ProjectReference Include="..\Medicine.Database\Medicine.Database.csproj" />
   </ItemGroup>

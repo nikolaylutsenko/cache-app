@@ -19,29 +19,32 @@ public class MedicineConfiguration : IEntityTypeConfiguration<Medicine>
 
         builder
             .HasMany(t => t.Tags)
-            .WithMany(t => t.Medication)
+            .WithMany(t => t.Medicines)
             .UsingEntity(
                 "Medicine_Tags",
                 l => l.HasOne(typeof(Tag)).WithMany().HasForeignKey("TagId"),
                 r => r.HasOne(typeof(Medicine)).WithMany().HasForeignKey("MedicineId"),
                 j => j.HasKey("TagId", "MedicineId")
             );
-        //TODO: fix many-to-many
-        //builder
-        //    .HasMany(t => t.Substances)
-        //    .WithMany(t => t.Medication)
-        //    .UsingEntity<Ingredient>(
-        //        "Ingredient",
-        //        l =>
-        //            l.HasOne(t => t.Substance)
-        //                .WithMany(t => t.Ingredients)
-        //                .HasForeignKey(t => t.SubstanceId),
-        //        r =>
-        //            r.HasOne(t => t.Medicine)
-        //                .WithMany(t => t.Ingredients)
-        //                .HasForeignKey(t => t.MedicineId),
-        //        j => j.HasKey(t => t.Id)
-        //    );
+
+        builder
+            .HasMany(t => t.Substances)
+            .WithMany(t => t.Medicines)
+            .UsingEntity<Ingredient>(j =>
+            {
+                j.HasKey(i => i.Id);
+
+                j.HasOne(i => i.Substance)
+                    .WithMany(s => s.Ingredients)
+                    .HasForeignKey(i => i.SubstanceId);
+
+                j.HasOne(i => i.Medicine)
+                    .WithMany(m => m.Ingredients)
+                    .HasForeignKey(i => i.MedicineId);
+
+                j.ToTable("Ingredient");
+            });
+
         builder
             .HasOne(t => t.Specification)
             .WithOne(t => t.Medicine)

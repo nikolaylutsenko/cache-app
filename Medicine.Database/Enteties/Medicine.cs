@@ -11,6 +11,7 @@ public class Medicine
 
     // navigation props
     public List<Substance> Substances { get; set; } = [];
+    public List<Ingredient> Ingredients { get; set; } = [];
     public Company? Manufacturer { get; set; }
     public List<Tag>? Tags { get; set; }
     public MedicineSpecification? Specification { get; set; }

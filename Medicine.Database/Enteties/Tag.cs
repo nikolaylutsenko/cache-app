@@ -7,5 +7,5 @@ public class Tag
     public required long Version { get; set; }
 
     // navigation props
-    public List<Medicine> Medication { get; set; } = [];
+    public List<Medicine> Medicines { get; set; } = [];
 }
