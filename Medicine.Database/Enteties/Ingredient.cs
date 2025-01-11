@@ -1,4 +1,4 @@
-﻿namespace CacheApp.Database.Enteties;
+﻿namespace Medicine.Database.Enteties;
 
 public class Ingredient
 {

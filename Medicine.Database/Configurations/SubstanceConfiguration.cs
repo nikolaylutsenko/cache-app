@@ -1,4 +1,4 @@
-﻿namespace CacheApp.Database.Configurations;
+﻿namespace Medicine.Database.Configurations;
 
 using Enteties;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +8,7 @@ public class SubstanceConfiguration : IEntityTypeConfiguration<Substance>
 {
     public void Configure(EntityTypeBuilder<Substance> builder)
     {
-        builder.ToTable("Substances");
+        builder.ToTable(nameof(Substance));
 
         builder.HasKey(t => t.Id);
 

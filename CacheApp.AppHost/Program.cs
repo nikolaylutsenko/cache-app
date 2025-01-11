@@ -12,7 +12,7 @@ var postgresdb = builder
     .AddDatabase("cacheappdb");
 
 var migration = builder
-    .AddProject<Projects.CacheApp_Migrations>("migrations")
+    .AddProject<Projects.Medicine_Migrations>("migrations")
     .WithReference(postgresdb)
     .WaitFor(postgresdb);
 
@@ -20,7 +20,7 @@ var migration = builder
 //builder.AddProject<Projects.CacheApp_Database>("database", s => s.ExcludeLaunchProfile = true);
 
 var api = builder
-    .AddProject<Projects.CacheApp_Server>("api")
+    .AddProject<Projects.Medicine_Api>("api")
     .WithReference(postgresdb)
     .WaitFor(postgresdb)
     .WaitForCompletion(migration)

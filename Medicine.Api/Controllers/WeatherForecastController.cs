@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace CacheApp.Server.Controllers;
+namespace Medicine.Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]

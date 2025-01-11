@@ -1,4 +1,4 @@
-using CacheApp.Database;
+using Medicine.Database;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);

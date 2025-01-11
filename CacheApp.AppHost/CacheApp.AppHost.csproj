@@ -18,9 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CacheApp.Database\CacheApp.Database.csproj" />
-    <ProjectReference Include="..\CacheApp.Migrations\CacheApp.Migrations.csproj" />
-    <ProjectReference Include="..\CacheApp.Server\CacheApp.Server.csproj" />
+    <ProjectReference Include="..\Medicine.Database\Medicine.Database.csproj" />
+    <ProjectReference Include="..\Medicine.Migrations\Medicine.Migrations.csproj" />
+    <ProjectReference Include="..\Medicine.Api\Medicine.Api.csproj" />
   </ItemGroup>
 
 </Project>

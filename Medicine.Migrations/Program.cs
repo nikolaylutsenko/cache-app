@@ -1,5 +1,5 @@
-using CacheApp.Database;
-using CacheApp.Migrations;
+using Medicine.Database;
+using Medicine.Migrations;
 using Microsoft.EntityFrameworkCore;
 
 var builder = Host.CreateApplicationBuilder(args);

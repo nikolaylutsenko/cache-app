@@ -1,7 +1,7 @@
-﻿namespace CacheApp.Database;
+﻿namespace Medicine.Database;
 
-using CacheApp.Database.Configurations;
 using Enteties;
+using Medicine.Database.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 public class AppDbContext(DbContextOptions options) : DbContext(options)

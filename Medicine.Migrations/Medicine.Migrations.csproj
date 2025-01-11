@@ -23,8 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CacheApp.Database\CacheApp.Database.csproj" />
-    <ProjectReference Include="..\CacheApp.Server\CacheApp.Server.csproj" />
+    <ProjectReference Include="..\Medicine.Database\Medicine.Database.csproj" />
+    <ProjectReference Include="..\Medicine.Api\Medicine.Api.csproj" />
     <ProjectReference Include="..\CacheApp.ServiceDefaults\CacheApp.ServiceDefaults.csproj" />
     <ProjectReference Include="..\CacheApp.Utils\CacheApp.Utils.csproj" />
   </ItemGroup>

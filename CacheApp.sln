@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheApp.Server", "CacheApp.Server\CacheApp.Server.csproj", "{556B9618-6C42-49B1-BFEE-504711BA469E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medicine.Api", "Medicine.Api\Medicine.Api.csproj", "{556B9618-6C42-49B1-BFEE-504711BA469E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheApp.AppHost", "CacheApp.AppHost\CacheApp.AppHost.csproj", "{42870C99-EDBE-431E-BBF6-8D0EB5294E62}"
 EndProject
@@ -11,9 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheApp.ServiceDefaults", 
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "cacheapp.client", "cacheapp.client\cacheapp.client.esproj", "{F0F3FC8A-F317-44EE-827E-4CA3FCD3E310}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheApp.Database", "CacheApp.Database\CacheApp.Database.csproj", "{6F527504-58DC-40A3-A791-465622DB71BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medicine.Database", "Medicine.Database\Medicine.Database.csproj", "{6F527504-58DC-40A3-A791-465622DB71BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheApp.Migrations", "CacheApp.Migrations\CacheApp.Migrations.csproj", "{3E8176CE-77D0-45C4-8408-3E77AA6D4C67}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medicine.Migrations", "Medicine.Migrations\Medicine.Migrations.csproj", "{3E8176CE-77D0-45C4-8408-3E77AA6D4C67}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheApp.Utils", "CacheApp.Utils\CacheApp.Utils.csproj", "{64389346-5A4C-4EF0-BD0E-074651E5D23E}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Medicine.Infrastructure", "Medicine.Infrastructure", "{C75E215F-C2A0-43F3-B80B-1A1790BA2AE4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Medicine.Presentation", "Medicine.Presentation", "{F8A8A4BC-DD49-4956-A93C-2FE644326E3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medicine.Core", "Medicine.Core\Medicine.Core.csproj", "{07371DB0-8464-4023-9398-10406480F230}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{64389346-5A4C-4EF0-BD0E-074651E5D23E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64389346-5A4C-4EF0-BD0E-074651E5D23E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64389346-5A4C-4EF0-BD0E-074651E5D23E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07371DB0-8464-4023-9398-10406480F230}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07371DB0-8464-4023-9398-10406480F230}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07371DB0-8464-4023-9398-10406480F230}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07371DB0-8464-4023-9398-10406480F230}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,11 +77,11 @@ Global
 		{556B9618-6C42-49B1-BFEE-504711BA469E} = {F8A8A4BC-DD49-4956-A93C-2FE644326E3F}
 		{42870C99-EDBE-431E-BBF6-8D0EB5294E62} = {7E67A764-B5E3-4229-AFCB-DB7331B47BD9}
 		{8DA7E2EC-EC89-42B5-8527-BAF2201A0631} = {7E67A764-B5E3-4229-AFCB-DB7331B47BD9}
-		{F0F3FC8A-F317-44EE-827E-4CA3FCD3E310} = {F8A8A4BC-DD49-4956-A93C-2FE644326E3F}
 		{6F527504-58DC-40A3-A791-465622DB71BA} = {C75E215F-C2A0-43F3-B80B-1A1790BA2AE4}
 		{3E8176CE-77D0-45C4-8408-3E77AA6D4C67} = {C75E215F-C2A0-43F3-B80B-1A1790BA2AE4}
 		{0D83403B-E3C4-47BC-939B-F50F973229CC} = {9902C9B3-1631-47A6-8816-884CA93DB7F9}
 		{C75E215F-C2A0-43F3-B80B-1A1790BA2AE4} = {9902C9B3-1631-47A6-8816-884CA93DB7F9}
 		{F8A8A4BC-DD49-4956-A93C-2FE644326E3F} = {9902C9B3-1631-47A6-8816-884CA93DB7F9}
+		{07371DB0-8464-4023-9398-10406480F230} = {0D83403B-E3C4-47BC-939B-F50F973229CC}
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,4 @@
-﻿namespace CacheApp.Database.Configurations;
+﻿namespace Medicine.Database.Configurations;
 
 using Enteties;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +8,7 @@ public class MedicineConfiguration : IEntityTypeConfiguration<Medicine>
 {
     public void Configure(EntityTypeBuilder<Medicine> builder)
     {
-        builder.ToTable("Medication");
+        builder.ToTable(nameof(Medicine));
         builder.HasKey(t => t.Id);
 
         builder.Property(t => t.Id).IsRequired();
@@ -21,26 +21,27 @@ public class MedicineConfiguration : IEntityTypeConfiguration<Medicine>
             .HasMany(t => t.Tags)
             .WithMany(t => t.Medication)
             .UsingEntity(
-                "Medication_Tags",
+                "Medicine_Tags",
                 l => l.HasOne(typeof(Tag)).WithMany().HasForeignKey("TagId"),
                 r => r.HasOne(typeof(Medicine)).WithMany().HasForeignKey("MedicineId"),
                 j => j.HasKey("TagId", "MedicineId")
             );
-        builder
-            .HasMany(t => t.Substances)
-            .WithMany(t => t.Medication)
-            .UsingEntity<Ingredient>(
-                "Ingredients",
-                l =>
-                    l.HasOne(t => t.Substance)
-                        .WithMany(t => t.Ingredients)
-                        .HasForeignKey(t => t.SubstanceId),
-                r =>
-                    r.HasOne(t => t.Medicine)
-                        .WithMany(t => t.Ingredients)
-                        .HasForeignKey(t => t.MedicineId),
-                j => j.HasKey(t => t.Id)
-            );
+        //TODO: fix many-to-many
+        //builder
+        //    .HasMany(t => t.Substances)
+        //    .WithMany(t => t.Medication)
+        //    .UsingEntity<Ingredient>(
+        //        "Ingredient",
+        //        l =>
+        //            l.HasOne(t => t.Substance)
+        //                .WithMany(t => t.Ingredients)
+        //                .HasForeignKey(t => t.SubstanceId),
+        //        r =>
+        //            r.HasOne(t => t.Medicine)
+        //                .WithMany(t => t.Ingredients)
+        //                .HasForeignKey(t => t.MedicineId),
+        //        j => j.HasKey(t => t.Id)
+        //    );
         builder
             .HasOne(t => t.Specification)
             .WithOne(t => t.Medicine)

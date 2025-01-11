@@ -1,4 +1,4 @@
-﻿namespace CacheApp.Database.Configurations;
+﻿namespace Medicine.Database.Configurations;
 
 using Enteties;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +8,7 @@ public class CompanyConfiguration : IEntityTypeConfiguration<Company>
 {
     public void Configure(EntityTypeBuilder<Company> builder)
     {
-        builder.ToTable("Companies");
+        builder.ToTable(nameof(Company));
         builder.HasKey(t => t.Id);
 
         builder.Property(t => t.Id).IsRequired();

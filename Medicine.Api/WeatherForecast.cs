@@ -1,4 +1,4 @@
-namespace CacheApp.Server;
+namespace Medicine.Api;
 
 public class WeatherForecast
 {
