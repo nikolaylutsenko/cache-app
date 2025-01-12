@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CacheApp.Utils\CacheApp.Utils.csproj" />
+  </ItemGroup>
+
 </Project>

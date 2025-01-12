@@ -19,8 +19,8 @@ var migration = builder
 // looks like I don't need to add Class lib to AppHost
 //builder.AddProject<Projects.CacheApp_Database>("database", s => s.ExcludeLaunchProfile = true);
 
-var api = builder
-    .AddProject<Projects.Medicine_Api>("api")
+var medicineApi = builder
+    .AddProject<Projects.Medicine_Api>("medicineApi")
     .WithReference(postgresdb)
     .WaitFor(postgresdb)
     .WaitForCompletion(migration)
@@ -28,8 +28,8 @@ var api = builder
 
 builder
     .AddNpmApp("angular", "../cacheapp.client")
-    .WithReference(api)
-    .WaitFor(api)
+    .WithReference(medicineApi)
+    .WaitFor(medicineApi)
     .WithHttpEndpoint(env: "PORT")
     .WithExternalHttpEndpoints()
     .PublishAsDockerFile();

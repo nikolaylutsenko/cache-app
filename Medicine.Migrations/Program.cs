@@ -9,7 +9,7 @@ builder.Services.AddHostedService<Worker>();
 
 builder.Services.AddOpenTelemetry().WithTracing(t => t.AddSource(Worker.ActivitySourceName));
 
-builder.AddNpgsqlDbContext<AppDbContext>(
+builder.AddNpgsqlDbContext<MedicineDbContext>(
     "cacheappdb",
     configureDbContextOptions: o =>
         o.UseNpgsql(b => b.MigrationsAssembly(typeof(Program).Assembly.FullName))

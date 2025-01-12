@@ -1,6 +1,6 @@
 ﻿namespace Medicine.Database.Enteties;
 
-public class Tag
+public class Tag : IEntity
 {
     public required Guid Id { get; set; }
     public required string Name { get; set; }

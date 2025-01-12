@@ -4,7 +4,7 @@ using Enteties;
 using Medicine.Database.Configurations;
 using Microsoft.EntityFrameworkCore;
 
-public class AppDbContext(DbContextOptions options) : DbContext(options)
+public class MedicineDbContext(DbContextOptions options) : DbContext(options)
 {
     public DbSet<Tag> Tags { get; set; }
     public DbSet<Company> Companies { get; set; }

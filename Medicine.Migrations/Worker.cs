@@ -28,7 +28,7 @@ public class Worker(
         try
         {
             using var scope = serviceProvider.CreateScope();
-            var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            var dbContext = scope.ServiceProvider.GetRequiredService<MedicineDbContext>();
 
             await EnsureDatabaseAsync(dbContext, cancellationToken);
             await RunMigrationAsync(dbContext, cancellationToken);
@@ -44,7 +44,7 @@ public class Worker(
     }
 
     private static async Task EnsureDatabaseAsync(
-        AppDbContext dbContext,
+        MedicineDbContext dbContext,
         CancellationToken cancellationToken
     )
     {
@@ -74,7 +74,7 @@ public class Worker(
     }
 
     private static async Task RunMigrationAsync(
-        AppDbContext dbContext,
+        MedicineDbContext dbContext,
         CancellationToken cancellationToken
     )
     {
@@ -99,7 +99,7 @@ public class Worker(
     }
 
     private static async Task SeedTagsAsync(
-        AppDbContext dbContext,
+        MedicineDbContext dbContext,
         CancellationToken cancellationToken
     )
     {

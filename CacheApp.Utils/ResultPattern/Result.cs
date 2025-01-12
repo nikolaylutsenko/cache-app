@@ -15,11 +15,11 @@ public struct Result<T>
     public T? Value { get; }
     public Error? Error { get; }
 
-    private bool _isSuccess;
+    //private bool _isSuccess;
     private readonly ResultState _state;
-    public bool IsSuccess => _state == ResultState.Success;
-    public bool IsFailure => _state == ResultState.Failure;
-    public bool IsNull => _state == ResultState.Null;
+    public readonly bool IsSuccess => _state == ResultState.Success;
+    public readonly bool IsFailure => _state == ResultState.Failure;
+    public readonly bool IsNull => _state == ResultState.Null;
 
     private Result(T value)
     {
@@ -40,16 +40,7 @@ public struct Result<T>
 
     public static implicit operator Result<T>(Error error) => new(error);
 
-    public Result<T> Match(Func<T, Result<T>> success, Func<Error, Result<T>> failure)
-    {
-        if (_isSuccess)
-        {
-            return success(Value!);
-        }
-        return failure(this.Error!);
-    }
-
-    [Pure]
+    [Pure] //TODO: check what is Pure
     public TR Match<TR>(
         Func<T, TR> onSuccess,
         Func<Error, TR> onFailure,

@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Medicine.Migrations.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    [DbContext(typeof(MedicineDbContext))]
     [Migration("20250111143220_Initial")]
     partial class Initial
     {

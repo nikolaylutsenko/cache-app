@@ -1,9 +1,11 @@
+using Medicine.Core.Repositories;
 using Medicine.Database;
+using Medicine.Database.Repositories;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.AddNpgsqlDbContext<AppDbContext>("cacheappdb");
+builder.AddNpgsqlDbContext<MedicineDbContext>("cacheappdb");
 
 builder.AddServiceDefaults();
 
@@ -12,6 +14,8 @@ builder.Services.AddControllers();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 var app = builder.Build();
 
