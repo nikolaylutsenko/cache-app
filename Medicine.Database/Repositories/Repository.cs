@@ -3,10 +3,10 @@
 using System.Linq.Expressions;
 using CacheApp.Utils.ResultPattern;
 using Core.Repositories;
-using Medicine.Database.Enteties;
+using Medicine.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-public class Repository<T>(MedicineDbContext context) : IRepository<T>
+public class Repository<T>(DbContext context) : IRepository<T>
     where T : class, IEntity
 {
     private readonly DbSet<T> _dbSet = context.Set<T>();

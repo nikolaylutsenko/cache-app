@@ -1,4 +1,6 @@
-﻿namespace Medicine.Database.Enteties;
+﻿using Medicine.Domain.Entities;
+
+namespace Medicine.Database.Enteties;
 
 public class Medicine : IEntity
 {

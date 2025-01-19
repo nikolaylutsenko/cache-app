@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Medicine.Core\Medicine.Core.csproj" />
+    <ProjectReference Include="..\Medicine.Core\Medicine.Domain.csproj" />
   </ItemGroup>
 
 </Project>

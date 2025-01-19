@@ -1,4 +1,4 @@
-﻿namespace Medicine.Database.Enteties;
+﻿namespace Medicine.Domain.Entities;
 
 public interface IEntity
 {
