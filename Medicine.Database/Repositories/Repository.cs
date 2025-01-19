@@ -14,13 +14,11 @@ public class Repository<T>(DbContext context) : IRepository<T>
     public async Task Add(T entity, CancellationToken token)
     {
         await _dbSet.AddAsync(entity, token);
-        await context.SaveChangesAsync(token);
     }
 
     public async Task Delete(T entity, CancellationToken token)
     {
         _dbSet.Remove(entity);
-        await context.SaveChangesAsync(token);
     }
 
     public async Task<Result<IEnumerable<T>>> Get(
@@ -43,6 +41,5 @@ public class Repository<T>(DbContext context) : IRepository<T>
     public async Task Update(T entity, CancellationToken token)
     {
         _dbSet.Update(entity);
-        await context.SaveChangesAsync(token);
     }
 }
