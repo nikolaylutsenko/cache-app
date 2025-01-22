@@ -1,6 +1,5 @@
-using Medicine.Core.Repositories;
 using Medicine.Database;
-using Medicine.Database.Repositories;
+using Medicine.Database.UnitOfWork.Repositories;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);

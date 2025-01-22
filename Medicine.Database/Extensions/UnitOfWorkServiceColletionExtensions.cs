@@ -1,4 +1,5 @@
-﻿using Medicine.Domain.Repositories;
+﻿using Medicine.Database.UnitOfWork;
+using Medicine.Database.UnitOfWork.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,16 +10,12 @@ public static class UnitOfWorkServiceCollectionExtensions
     public static IServiceCollection AddUnitOfWork<TContext>(this IServiceCollection services)
         where TContext : DbContext
     {
-        services.AddScoped<IRepositoryFactory, UnitOfWork<TContext>>();
-        // Following has a issue: IUnitOfWork cannot support multiple dbContext/database,
-        // that means cannot call AddUnitOfWork<TContext> multiple times.
-        // Solution: check IUnitOfWork whether or null
-        services.AddScoped<IUnitOfWork, UnitOfWork<TContext>>();
         services.AddScoped<IUnitOfWork<TContext>, UnitOfWork<TContext>>();
 
         return services;
     }
 
+    // just for fun implement injection of multiple contexts by type
     public static IServiceCollection AddUnitOfWork(
         this IServiceCollection services,
         params Type[] types

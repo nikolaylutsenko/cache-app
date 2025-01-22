@@ -2,6 +2,7 @@
 
 using Core.Repositories;
 using Database.Enteties;
+using Medicine.Database.UnitOfWork.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]

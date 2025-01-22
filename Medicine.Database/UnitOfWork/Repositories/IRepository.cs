@@ -1,8 +1,9 @@
-﻿using System.Linq.Expressions;
+﻿namespace Medicine.Database.UnitOfWork.Repositories;
+
+using System.Linq.Expressions;
 using CacheApp.Utils.ResultPattern;
 
-namespace Medicine.Core.Repositories;
-
+[Obsolete]
 public interface IRepository<T>
 {
     public Task Add(T entity, CancellationToken token);

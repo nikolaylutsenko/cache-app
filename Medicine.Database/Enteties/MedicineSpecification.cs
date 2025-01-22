@@ -2,7 +2,7 @@
 
 using System.ComponentModel;
 
-public class MedicineSpecification
+public class MedicineSpecification : IDatabaseEntity
 {
     public required Guid Id { get; set; }
     public DosageForms? Form { get; set; }

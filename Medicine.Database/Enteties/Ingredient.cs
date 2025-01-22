@@ -1,6 +1,6 @@
 ﻿namespace Medicine.Database.Enteties;
 
-public class Ingredient
+public class Ingredient : IDatabaseEntity
 {
     public required Guid Id { get; set; }
     public required Guid MedicineId { get; set; }
