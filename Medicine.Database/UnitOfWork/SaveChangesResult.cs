@@ -2,7 +2,7 @@
 
 public sealed class SaveChangesResult
 {
-    public SaveChangesResult() => Messages = new List<string>();
+    public SaveChangesResult() => Messages = [];
 
     public SaveChangesResult(string message)
         : this() => AddMessage(message);

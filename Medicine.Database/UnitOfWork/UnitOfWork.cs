@@ -1,38 +1,32 @@
-﻿using Medicine.Database.Enteties;
-using Medicine.Database.Repositories;
-using Medicine.Database.UnitOfWork.Repositories;
+﻿namespace Medicine.Database.UnitOfWork;
+
+using Enteties;
 using Microsoft.EntityFrameworkCore;
+using Repositories;
 
-namespace Medicine.Database.UnitOfWork;
-
-public sealed class UnitOfWork<TContext> : IUnitOfWork<TContext>
+public sealed class UnitOfWork<TContext>(TContext context) : IUnitOfWork<TContext>
     where TContext : DbContext
 {
     private bool _disposed;
-    private Dictionary<Type, object>? _repositories;
+    private Dictionary<Type, object>? _repositories = [];
 
-    public UnitOfWork(TContext context)
-    {
-        DbContext = context ?? throw new ArgumentNullException(nameof(context));
-        LastSaveChangesResult = new SaveChangesResult();
-    }
+    public TContext DbContext { get; } =
+        context ?? throw new ArgumentNullException(nameof(context));
 
-    public TContext DbContext { get; }
+    public SaveChangesResult LastSaveChangesResult { get; } = new SaveChangesResult();
 
-    public SaveChangesResult LastSaveChangesResult { get; }
-
-    public IRepository<TEntity> GetRepository<TEntity>()
+    public IRepositoryV2<TEntity> GetRepository<TEntity>()
         where TEntity : class, IDatabaseEntity
     {
-        _repositories ??= new Dictionary<Type, object>();
+        _repositories ??= [];
 
         var type = typeof(TEntity);
         if (!_repositories.ContainsKey(type))
         {
-            _repositories[type] = new Repository<TEntity>(DbContext);
+            _repositories[type] = new RepositoryV2<TEntity>(DbContext);
         }
 
-        return (IRepository<TEntity>)_repositories[type];
+        return (IRepositoryV2<TEntity>)_repositories[type];
     }
 
     public async Task SaveChangesAsync()

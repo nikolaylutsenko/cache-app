@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 public interface IUnitOfWork<out TContext> : IDisposable
     where TContext : DbContext
 {
-    IRepository<TEntity> GetRepository<TEntity>()
+    IRepositoryV2<TEntity> GetRepository<TEntity>()
         where TEntity : class, IDatabaseEntity;
 
     Task SaveChangesAsync();

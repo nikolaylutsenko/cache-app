@@ -1,17 +1,15 @@
 ﻿namespace Medicine.Database.UnitOfWork.Repositories;
 
 using System.Linq.Expressions;
-using Domain.Aggregates;
 using Enteties;
 
-public interface IRepositoryV2<TDomain, TDomainId, TDatabase>
-    where TDomain : AggregateRoot<TDomainId>
-    where TDomainId : IdentityBase
-    where TDatabase : IDatabaseEntity
+public interface IRepositoryV2<TDatabase>
+    where TDatabase : class, IDatabaseEntity
 {
-    Task<TDomain?> Find(Expression<Func<TDomain, bool>> predicate);
+    Task<TDatabase?> Find(Expression<Func<TDatabase, bool>> predicate, CancellationToken token);
+    Task<TDatabase?> Find(Guid id, CancellationToken token);
 
-    void Add(TDomain aggregate);
-    void Update(TDomain aggregate);
-    void Remove(TDomain aggregate);
+    void Add(TDatabase entity);
+    void Update(TDatabase entity);
+    void Delete(TDatabase entity);
 }
