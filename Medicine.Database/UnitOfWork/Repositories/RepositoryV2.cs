@@ -1,8 +1,11 @@
 namespace Medicine.Database.UnitOfWork.Repositories;
 
 using System.Linq.Expressions;
-using Medicine.Database.Enteties;
+using Enteties;
+using Medicine.Database.UnitOfWork.Repositories.Specifications;
 using Microsoft.EntityFrameworkCore;
+
+//TODO: read this - https://dotnetfullstackdev.medium.com/mastering-the-specification-pattern-in-c-d7a9f0a5e6de
 
 public class RepositoryV2<TDatabase>(DbContext context) : IRepositoryV2<TDatabase>
     where TDatabase : class, IDatabaseEntity
@@ -14,26 +17,47 @@ public class RepositoryV2<TDatabase>(DbContext context) : IRepositoryV2<TDatabas
         CancellationToken token
     )
     {
-        return _dBSet.FirstOrDefaultAsync(predicate, token);
+        return _dBSet.AsNoTracking().FirstOrDefaultAsync(predicate, token);
     }
 
     public Task<TDatabase?> Find(Guid id, CancellationToken token)
     {
-        return _dBSet.FirstOrDefaultAsync(x => x.Id == id, token);
+        return _dBSet.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id, token);
     }
 
     public void Add(TDatabase entity)
     {
-        _dBSet.Add(entity);
+        context.Entry(entity).State = EntityState.Added;
     }
 
     public void Update(TDatabase entity)
     {
-        _dBSet.Update(entity);
+        context.Entry(entity).State = EntityState.Modified;
     }
 
     public void Delete(TDatabase entity)
     {
-        _dBSet.Remove(entity);
+        context.Entry(entity).State = EntityState.Deleted;
+    }
+
+    // GENERIC EF REPOSITORY WITH SPECIFICATION
+    // https://github.com/dotnet-architecture/eShopOnWeb
+
+    public IEnumerable<TDatabase> List(ISpecification<TDatabase> spec)
+    {
+        // fetch a Queryable that includes all expression-based includes
+        var queryableResultWithIncludes = spec.Includes.Aggregate(
+            context.Set<TDatabase>().AsQueryable(),
+            (current, include) => current.Include(include)
+        );
+
+        // modify the IQueryable to include any string-based include statements
+        var secondaryResult = spec.IncludeStrings.Aggregate(
+            queryableResultWithIncludes,
+            (current, include) => current.Include(include)
+        );
+
+        // return the result of the query using the specification's criteria expression
+        return secondaryResult.Where(spec.Criteria).AsEnumerable();
     }
 }
