@@ -60,4 +60,14 @@ public class RepositoryV2<TDatabase>(DbContext context) : IRepositoryV2<TDatabas
         // return the result of the query using the specification's criteria expression
         return secondaryResult.Where(spec.Criteria).AsEnumerable();
     }
+
+    public async Task<IReadOnlyList<TDatabase>> ListAsync(ISpecification<TDatabase> specification)
+    {
+        return await ApplySpecification(specification).ToListAsync();
+    }
+
+    private IQueryable<TDatabase> ApplySpecification(ISpecification<TDatabase> specification)
+    {
+        return SpecificationEvaluator<TDatabase>.GetQuery(_dBSet.AsQueryable(), specification);
+    }
 }

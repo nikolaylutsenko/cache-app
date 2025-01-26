@@ -2,6 +2,7 @@
 
 using System.Linq.Expressions;
 using Enteties;
+using Medicine.Database.UnitOfWork.Repositories.Specifications;
 
 public interface IRepositoryV2<TDatabase>
     where TDatabase : class, IDatabaseEntity
@@ -12,4 +13,6 @@ public interface IRepositoryV2<TDatabase>
     void Add(TDatabase entity);
     void Update(TDatabase entity);
     void Delete(TDatabase entity);
+
+    Task<IReadOnlyList<TDatabase>> ListAsync(ISpecification<TDatabase> specification);
 }

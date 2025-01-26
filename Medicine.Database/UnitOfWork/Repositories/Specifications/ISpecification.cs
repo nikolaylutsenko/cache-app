@@ -7,6 +7,8 @@ using System.Linq.Expressions;
 
 public interface ISpecification<T>
 {
+    int Skip { get; }
+    int Take { get; }
     Expression<Func<T, bool>> Criteria { get; }
     List<Expression<Func<T, object>>> Includes { get; }
     List<string> IncludeStrings { get; }
@@ -15,14 +17,13 @@ public interface ISpecification<T>
 // GENERIC SPECIFICATION IMPLEMENTATION (BASE CLASS)
 // https://github.com/dotnet-architecture/eShopOnWeb
 
-public abstract class BaseSpecification<T> : ISpecification<T>
+public abstract class BaseSpecification<T>(Expression<Func<T, bool>> criteria) : ISpecification<T>
 {
-    public BaseSpecification(Expression<Func<T, bool>> criteria)
-    {
-        Criteria = criteria;
-    }
+    public int Skip { get; set; }
 
-    public Expression<Func<T, bool>> Criteria { get; }
+    public int Take { get; set; }
+
+    public Expression<Func<T, bool>> Criteria { get; } = criteria;
 
     public List<Expression<Func<T, object>>> Includes { get; } =
         new List<Expression<Func<T, object>>>();
