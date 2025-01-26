@@ -8,6 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="CrypticWizard.RandomWordGenerator" Version="0.9.5" />
+    <PackageReference Include="xunit" Version="1.7.0.1540" />
+    <PackageReference Include="xunit.runner.console" Version="2.9.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
