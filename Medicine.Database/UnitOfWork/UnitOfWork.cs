@@ -1,16 +1,14 @@
 ﻿namespace Medicine.Database.UnitOfWork;
 
 using Enteties;
-using Microsoft.EntityFrameworkCore;
 using Repositories;
 
-public sealed class UnitOfWork<TContext>(TContext context) : IUnitOfWork<TContext>
-    where TContext : DbContext
+public sealed class UnitOfWork(MedicineDbContext context) : IUnitOfWork
 {
     private bool _disposed;
     private Dictionary<Type, object>? _repositories = [];
 
-    public TContext DbContext { get; } =
+    public MedicineDbContext DbContext { get; } =
         context ?? throw new ArgumentNullException(nameof(context));
 
     public SaveChangesResult LastSaveChangesResult { get; } = new SaveChangesResult();
@@ -23,7 +21,7 @@ public sealed class UnitOfWork<TContext>(TContext context) : IUnitOfWork<TContex
         var type = typeof(TEntity);
         if (!_repositories.ContainsKey(type))
         {
-            _repositories[type] = new RepositoryV2<TEntity>(DbContext);
+            _repositories[type] = new RepositoryV2<TEntity>(context);
         }
 
         return (IRepositoryV2<TEntity>)_repositories[type];
@@ -33,7 +31,7 @@ public sealed class UnitOfWork<TContext>(TContext context) : IUnitOfWork<TContex
     {
         try
         {
-            await DbContext.SaveChangesAsync();
+            await context.SaveChangesAsync();
         }
         catch (Exception exception)
         {
@@ -54,7 +52,7 @@ public sealed class UnitOfWork<TContext>(TContext context) : IUnitOfWork<TContex
             if (disposing)
             {
                 _repositories?.Clear();
-                DbContext.Dispose();
+                context.Dispose();
             }
         }
         _disposed = true;

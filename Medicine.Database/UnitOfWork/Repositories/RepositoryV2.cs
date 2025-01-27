@@ -42,7 +42,6 @@ public class RepositoryV2<TDatabase>(DbContext context) : IRepositoryV2<TDatabas
 
     // GENERIC EF REPOSITORY WITH SPECIFICATION
     // https://github.com/dotnet-architecture/eShopOnWeb
-
     public IEnumerable<TDatabase> List(ISpecification<TDatabase> spec)
     {
         // fetch a Queryable that includes all expression-based includes

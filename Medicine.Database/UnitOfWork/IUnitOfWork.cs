@@ -1,16 +1,12 @@
 ﻿namespace Medicine.Database.UnitOfWork;
 
-using Medicine.Database.Enteties;
-using Medicine.Database.UnitOfWork.Repositories;
-using Microsoft.EntityFrameworkCore;
+using Enteties;
+using Repositories;
 
-public interface IUnitOfWork<out TContext> : IDisposable
-    where TContext : DbContext
+public interface IUnitOfWork : IDisposable
 {
     IRepositoryV2<TEntity> GetRepository<TEntity>()
         where TEntity : class, IDatabaseEntity;
 
     Task SaveChangesAsync();
-
-    TContext DbContext { get; }
 }
