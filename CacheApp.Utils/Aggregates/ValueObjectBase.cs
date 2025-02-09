@@ -1,4 +1,4 @@
-﻿namespace Medicine.Domain.Aggregates;
+﻿namespace CacheApp.Utils.Aggregates;
 
 /// <summary>
 /// https://enterprisecraftsmanship.com/posts/value-object-better-implementation/

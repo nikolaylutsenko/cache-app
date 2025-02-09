@@ -1,4 +1,4 @@
-﻿namespace Medicine.Domain.Aggregates;
+﻿namespace CacheApp.Utils.Aggregates;
 
 public abstract class AggregateRoot<TIdentity> : EntityBase<TIdentity>
     where TIdentity : IdentityBase

@@ -1,8 +1,8 @@
-﻿namespace Medicine.Core.Aggregates;
+﻿namespace CacheApp.Utils.Aggregates;
 
 public class Entity(Guid Id) : IEquatable<Entity>
 {
-    public Guid Id { get; private set; }
+    public Guid Id { get; private set; } = Id;
 
     public bool Equals(Entity? other)
     {
